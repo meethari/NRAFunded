@@ -3,6 +3,8 @@
 var express = require("express");
 // Import firebase
 var admin = require('firebase-admin');
+// Import configurations
+var config = require("./config.js");
 // Import service account
 //var serviceAccount = require('./serviceAccountKey.json');
 
@@ -35,7 +37,7 @@ app.set('port', process.env.PORT || 3000 );
 // Initialize database
 //var db = admin.database();
 
-//Serve the application
+// Serve the application
 var server = app.listen(app.get('port'), function() {
   console.log('Listening on port ' + app.get('port'));
 });
@@ -46,3 +48,8 @@ ref.once("value", function(snapshot) {
   console.log(snapshot.val());
 });
 */
+
+// Get request for maps API key
+app.get('/getMapsAPIKey', function(req, res) {
+    res.send(config.MapsAPIKey);
+});
