@@ -30,21 +30,24 @@ app.use(express.static('public'));
 // Route definitions:
 // Define a route for the index page
 app.use(require('./routes/index'));
+// Define a route for initial search page
+app.use(require('./routes/initialSearch'));
 
 // Define port to serve the application
 app.set('port', process.env.PORT || 3000 );
 
 // Local Variables
+// Set initial values to correspond to Washington DC
 // Longitude
-app.locals.longitude;
+app.locals.longitude = -77.084616;
 // Latitude
-app.locals.latitude;
+app.locals.latitude = 38.8937091;
 // Administrative Level 1: State
-app.locals.adminLevelOne;
+app.locals.adminLevelOne = "District of Columbia";
 // Administrative Level 2: County
-app.locals.adminLevelTwo;
+app.locals.adminLevelTwo = "";
 // Locality: City
-app.locals.locality;
+app.locals.locality = "Washington";
 
 // Initialize database
 //var db = admin.database();
