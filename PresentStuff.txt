@@ -1,0 +1,29 @@
+There is a lot of political data out there about issues that people care about,
+but it is usuallly not formatted in a way that is easy to access.
+
+Especially when it comes to lobbying and campaign funding, while politicians
+are required to disclose the money they receive, they have clear incentive to
+make this information difficult to find and use.
+
+Our website does what the internet does best, it finds information, reorganizes it
+in a meaningful way, and then distributes it.
+
+Our application makes information about where candidates get money from easier
+to find and compare. In light of recent events, we decided to focus on money
+received from the NRA, although this project would be very scalable to other
+types of funding.
+
+overview what the site does: Temba
+	gets your location, finds your local representatives and says how much money
+	they have received from the NRA
+
+front end: yifei
+	how does it look, how to input
+
+data scraping: Hari
+	Where we got the data from and how we got it
+
+civics api and matching:
+	How we get your local data and match it with the NRA data
+
+//TODO Firebase hosting and our database.
