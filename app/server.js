@@ -50,6 +50,6 @@ ref.once("value", function(snapshot) {
 */
 
 // Get request for maps API key
-app.get('/getMapsAPIKey', function(req, res) {
+app.get('/getMapsAPIKey', function(res) {
     res.send(config.MapsAPIKey);
 });
