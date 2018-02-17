@@ -15,7 +15,7 @@ function saveReps(address){
 // this one requests all elections that can be queried at the time.
 // each election has a unique ID number that can be used in the next function to find more details
 function saveElections(){
-	var config = "AIzaSyDL4fVkLF6vdgzjt4C0XApfOmaH2Fciyok";
+	var config = ;
 	$.get("https://www.googleapis.com/civicinfo/v2/elections?key=" + config, function(data, status){
 		console.log(status);
 		console.log(data);
@@ -24,7 +24,7 @@ function saveElections(){
 
 // takes an address and election ID number to find more detailed information about a specific election
 function saveOneElection(address, electionId){
-	var config = "AIzaSyDL4fVkLF6vdgzjt4C0XApfOmaH2Fciyok";
+	var config = ;
 	var newaddress = changeaddress(address);
 	$.get("https://www.googleapis.com/civicinfo/v2/voterinfo?key=" + config +"&address=" + newaddress + "&electionId=" + electionId , function(data, status){
 		console.log(status);
