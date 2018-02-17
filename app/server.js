@@ -34,6 +34,18 @@ app.use(require('./routes/index'));
 // Define port to serve the application
 app.set('port', process.env.PORT || 3000 );
 
+// Local Variables
+// Longitude
+app.locals.longitude;
+// Latitude
+app.locals.latitude;
+// Administrative Level 1: State
+app.locals.adminLevelOne;
+// Administrative Level 2: County
+app.locals.adminLevelTwo;
+// Locality: City
+app.locals.locality;
+
 // Initialize database
 //var db = admin.database();
 
