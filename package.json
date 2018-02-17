@@ -1,0 +1,19 @@
+{
+  "name": "nrafunded",
+  "version": "1.0.0",
+  "description": "In light of the recent events in Florida, NRAFunded is a web application developed to raise awareness of the influence of the NRA on political decisions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ycheng14799/NRAFunded.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ycheng14799/NRAFunded/issues"
+  },
+  "homepage": "https://github.com/ycheng14799/NRAFunded#readme"
+}
