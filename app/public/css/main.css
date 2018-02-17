@@ -6,7 +6,7 @@ body {
     width:100%;
     margin: 0px;
     padding: 0px;
-    background-color: #e6e6e6;
+    background-color: #f2f2f2;
 }
 
 #header {
@@ -52,12 +52,14 @@ body {
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 20px;
+    color: #262626;
 }
 
 #searchBarInput {
     float: left;
     margin-top: 25px;
     width: calc(100% - 160px);
+    color: #262626;
     border: none;
 }
 #searchBarInput:focus {
@@ -71,6 +73,7 @@ body {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 20px;
+    color: #262626;
 }
 
 #searchBar p {
@@ -78,6 +81,7 @@ body {
     margin-top: 30px;
     font-size: 0.8em;
     margin-left: 0px;
+    color: #262626;
 }
 
 #geolocateMe {
@@ -104,8 +108,10 @@ body {
 #generalStatsTotalFunding, #generalStatsTotalRepFunded, #generalStatsHighestRepFunded {
     float: left;
     margin-left: 10px;
+    margin-right: 10px;
     margin-top: 0px;
-    width: 100%;
+    width: calc(100% - 20px);
+    color: #262626;
 }
 
 #generalStatsLocation {
@@ -113,22 +119,17 @@ body {
     width: 100%;
     text-align: center;
     margin-top: 20px;
+    color: #262626;
 }
 
 #map {
     float: left;
     margin: 10px;
+    margin-bottom: 20px;
     width: calc(100% - 20px);
     height: 200px;
     background-color: white;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
-}
-
-#map iframe {
-    float: left;
-    width: 100%;
-    height: 200px;
-    margin: 0;
 }
 
 #individuals {
@@ -139,7 +140,7 @@ body {
 #individualsHeader {
     float: left;
     width: calc(50% - 20px);
-    height: 150px;
+    height: 175px;
     margin: 10px;
     background-color: #31425f;
     color: white;
@@ -148,7 +149,9 @@ body {
 
 #individualsHeader h3 {
     float: left;
+    width: calc(100% - 20px);
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 #individualsOptions {
@@ -156,7 +159,7 @@ body {
     width: calc(50% - 20px);
     margin: 10px;
     background-color: white;
-    height: 150px;
+    height: 175px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
 
@@ -164,6 +167,7 @@ body {
     float: left;
     margin-left: 10px;
     width: calc(100% - 10px);
+    color: #262626;
 }
 
 #individualsOptions input {
@@ -201,11 +205,13 @@ body {
     float: left;
     margin-left:10px;
     width: calc(35% - 10px);
+    color: #262626;
 }
 .individualFundingRecieved {
     float: left;
     margin-left: 10px;
     width: calc(20% - 10px);
+    color: #262626;
 }
 .individualFundingGraph {
     float: left;
