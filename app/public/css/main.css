@@ -31,7 +31,8 @@ body {
     width: calc(100% - 10px);
     color: white;
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1em;
+    margin-top: 20px;
 }
 
 #searchBar {
@@ -41,4 +42,45 @@ body {
     margin-top: 20px;
     height: 75px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#searchBarIcon {
+    float: left;
+    width: 40px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+}
+
+#searchBarInput {
+    float: left;
+    margin-top: 25px;
+    width: calc(100% - 160px);
+    border: none;
+}
+#searchBarInput:focus {
+    outline: none;
+}
+
+#searchBarFindMe {
+    float: left;
+    width: 40px;
+    height: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+}
+
+#searchBar p {
+    float: left;
+    margin-top: 30px;
+    font-size: 0.8em;
+    margin-left: 0px;
+}
+
+#searchBar a {
+    margin-left: 5px;
+    float: left;
+    width: 100px;
 }
