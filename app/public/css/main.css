@@ -1,0 +1,44 @@
+* {
+    font-family: Roboto;
+}
+
+body {
+    width:100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #e6e6e6;
+}
+
+#header {
+    float: left;
+    width: 100%;
+}
+
+#headerLogo {
+    float: left;
+    width: 75px;
+    height: 75px;
+    background-color: #31425f;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#headerLogoText {
+    float: left;
+    margin: 5px;
+    width: calc(100% - 10px);
+    color: white;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+#searchBar {
+    float: left;
+    width: calc(100% - 105px);
+    background-color: white;
+    margin-top: 20px;
+    height: 75px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
