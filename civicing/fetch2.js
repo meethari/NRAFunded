@@ -3,15 +3,12 @@
 // apikey not working right now cuz I can't use require
 function saveReps(address){
 	var config = require('C:\\Users\\Kevin Zheng\\Documents\\Grade 0\\HopHack\\apee.json');
-	var reps;
 	var newaddress = changeaddress(address);
 	console.log(newaddress);
 	$.get("https://www.googleapis.com/civicinfo/v2/representatives?key=" + config.apikey + "&address=" + newaddress, function(data, status){
 		// the data variable holds the information you seek
 		console.log(status);
 		console.log(data);
-        reps = data;
-        $("#text-field").text(data.officials[1].name);
 	});
 	console.log(reps);
 	return reps;
@@ -20,12 +17,10 @@ function saveReps(address){
 // this one requests all elections that can be queried at the time.
 // each election has a unique ID number that can be used in the next function to find more details
 function saveElections(){
-	var config = require('C:\\Users\\Kevin Zheng\\Documents\\Grade 0\\HopHack\\apee.json');/
-	var elections;
+	var config = require('C:\\Users\\Kevin Zheng\\Documents\\Grade 0\\HopHack\\apee.json');
 	$.get("https://www.googleapis.com/civicinfo/v2/elections?key=" + config.apikey, function(data, status){
 		console.log(status);
 		console.log(data);
-		elections = data;
 	});
 	return elections;
 }
@@ -34,11 +29,9 @@ function saveElections(){
 function saveOneElection(address, electionId){
 	var config = require('C:\\Users\\Kevin Zheng\\Documents\\Grade 0\\HopHack\\apee.json');/
 	var newaddress = changeaddress(address);
-	var oneElection;
 	$.get("https://www.googleapis.com/civicinfo/v2/voterinfo?key=" + config.apikey +"&address=" + newaddress + "&electionId=" + electionId , function(data, status){
 		console.log(status);
 		console.log(data);
-		oneElection = data;
 	});
 	return oneElection;
 }
