@@ -1,0 +1,223 @@
+* {
+    font-family: Roboto;
+}
+
+body {
+    width:100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #e6e6e6;
+}
+
+#header {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#headerLogo {
+    float: left;
+    width: 75px;
+    height: 75px;
+    background-color: #31425f;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#headerLogoText {
+    float: left;
+    margin: 5px;
+    width: calc(100% - 10px);
+    color: white;
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+#searchBar {
+    float: left;
+    width: calc(100% - 105px);
+    background-color: white;
+    margin-top: 20px;
+    height: 75px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#searchBarIcon {
+    float: left;
+    width: 40px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+}
+
+#searchBarInput {
+    float: left;
+    margin-top: 25px;
+    width: calc(100% - 160px);
+    border: none;
+}
+#searchBarInput:focus {
+    outline: none;
+}
+
+#searchBarFindMe {
+    float: left;
+    width: 40px;
+    height: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+}
+
+#searchBar p {
+    float: left;
+    margin-top: 30px;
+    font-size: 0.8em;
+    margin-left: 0px;
+}
+
+#geolocateMe {
+    margin-left: 5px;
+    float: left;
+    width: 100px;
+}
+
+#general {
+    float: left;
+    width: 100%;
+    margin: left;
+}
+
+#generalStats {
+    float: left;
+    margin: 10px;
+    width: calc(100% - 20px);
+    background-color: white;
+    height: 200px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#generalStatsTotalFunding, #generalStatsTotalRepFunded, #generalStatsHighestRepFunded {
+    float: left;
+    margin-left: 10px;
+    margin-top: 0px;
+    width: 100%;
+}
+
+#generalStatsLocation {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#map {
+    float: left;
+    margin: 10px;
+    width: calc(100% - 20px);
+    height: 200px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#map iframe {
+    float: left;
+    width: 100%;
+    height: 200px;
+    margin: 0;
+}
+
+#individuals {
+    float: left;
+    width: 100%;
+}
+
+#individualsHeader {
+    float: left;
+    width: calc(50% - 20px);
+    height: 150px;
+    margin: 10px;
+    background-color: #31425f;
+    color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#individualsHeader h3 {
+    float: left;
+    margin-left: 10px;
+}
+
+#individualsOptions {
+    float: left;
+    width: calc(50% - 20px);
+    margin: 10px;
+    background-color: white;
+    height: 150px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+#individualsOptions h3 {
+    float: left;
+    margin-left: 10px;
+    width: calc(100% - 10px);
+}
+
+#individualsOptions input {
+    float: left;
+    width: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#individualsOptions p {
+    float: left;
+    width: calc(100% - 30px);
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#individualsContent {
+    float: left;
+    width: 100%;
+}
+
+.individualsIndividual {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+    background-color: white;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+.individualName {
+    float: left;
+    margin-left:10px;
+    width: calc(35% - 10px);
+}
+.individualFundingRecieved {
+    float: left;
+    margin-left: 10px;
+    width: calc(20% - 10px);
+}
+.individualFundingGraph {
+    float: left;
+    margin-left: 10px;
+    width: calc(45% - 10px);
+}
+.individualFundingGraph div {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: calc(50% - 20px);
+    background-color: #31425f;
+}
