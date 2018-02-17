@@ -8,7 +8,7 @@ function saveReps(address){
 		console.log(req);
 		console.log(JSON.stringify(req));
 	}
-	req.open('GET', "https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyAcHzzZEJEgsrljnVpGBApApZRIkwxY5ls&address=" + newaddress, true);
+	req.open('GET', "https://www.googleapis.com/civicinfo/v2/representatives?key=" + keyhere +"&address=" + newaddress, true);
 	req.send();
 }
 
