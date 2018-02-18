@@ -84,7 +84,24 @@ $(window).on("load", function() {
             geocode(newUserInput);
             $("#searchBarInput").val("");
         }
-    })
+    });
+
+    $("#checkBoxReps").change(function() {
+        console.log("Reps checkbox toggled");
+        if(this.checked) {
+            $(".individualHouse").show();
+        } else {
+            $(".individualHouse").hide();
+        }
+    });
+    $("#checkBoxSenators").change(function() {
+        console.log("Reps checkbox toggled");
+        if(this.checked) {
+            $(".individualSenate").show();
+        } else {
+            $(".individualSenate").hide();
+        }
+    });
 });
 
 // Geocode Function
