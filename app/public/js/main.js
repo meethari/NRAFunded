@@ -187,8 +187,61 @@ function getCivicsData() {
                 }
                 console.log(data.offices[civicDataSenateIndex]);
                 console.log(data.offices[civicDataHouseRepresentativeIndex]);
-
+                var indicesOfSenators = data.offices[civicDataSenateIndex].officialIndices;
+                var indicesOfHouseReps = data.offices[civicDataHouseRepresentativeIndex].officialIndices;
+                console.log(indicesOfSenators);
+                console.log(indicesOfHouseReps);
+                for(var i = 0; i < indicesOfSenators.length; i++) {
+                    senators.push({
+                        name: data.officials[indicesOfSenators[i]].name,
+                        position: "Senator",
+                        party: data.officials[indicesOfSenators[i]].party
+                    });
+                }
+                console.log(senators);
+                for(var i = 0; i < indicesOfHouseReps.length; i++) {
+                    houseOfficials.push({
+                        name: data.officials[indicesOfHouseReps[i]].name,
+                        position: "Local House Representative",
+                        party: data.officials[indicesOfHouseReps[i]].party
+                    });
+                }
+                console.log(houseOfficials);
+                var allOfficials = senators.concat(houseOfficials);
+                console.log(allOfficials);
+                $("#individualsContent").html("");
+                printAllOfficials(allOfficials);
             });
         });
     });
+}
+
+function printAllOfficials(allOfficials) {
+    for(var i = 0; i < allOfficials.length; i++) {
+        printOfficial(allOfficials[i]);
+    }
+}
+
+function printOfficial(official) {
+    var partyClass;
+    if(official.party == "Democratic") {
+        partyClass = "individualDemocrat";
+    } else {
+        partyClass = "individualRepublican";
+    }
+    var positionClass;
+    if(official.position == "Local House Representative") {
+        positionClass = "individualHouse";
+    }
+    if(official.position == "Senator") {
+        positionClass = "individualSenate";
+    }
+    var officialHTML = `<div class="individualsIndividual ` + partyClass + ` ` + positionClass + `">
+                <p class="individualName">` + official.name + `</p>
+                <p class="individualParty">` + official.party + `</p>
+                <p class="individualPosition">` + official.position + `</p>
+                <p class="individualFundingRecieved">$10000</p>
+                <div class="individualFundingGraph"><div class="fundingGraphGraph"> </div><h1>$</h1></div>
+            </div>`;
+    $("#individualsContent").append(officialHTML);
 }

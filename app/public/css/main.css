@@ -204,29 +204,64 @@ body {
 .individualName {
     float: left;
     margin-left:10px;
-    width: calc(35% - 10px);
+    width: calc(40% - 10px);
     color: #262626;
+    margin-bottom: 0px;
+}
+.individualPosition {
+    float: left;
+    margin-left: 10px;
+    width: calc(30% - 10px);
+    color: #262626;
+    margin-bottom: 0px;
+}
+.individualParty {
+    float: left;
+    margin-left: 10px;
+    width: calc(30% - 10px);
+    color: #262626;
+    margin-bottom: 0px;
 }
 .individualFundingRecieved {
     float: left;
     margin-left: 10px;
-    width: calc(20% - 10px);
+    width: 75px;
     color: #262626;
+    margin-bottom: 0px;
 }
 .individualFundingGraph {
     float: left;
     margin-left: 10px;
-    width: calc(45% - 10px);
+    margin-top: 0px;
+    margin-bottom: 10px;
+    width: calc(100% - 100px);
 }
 .individualFundingGraph div {
     float: left;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
     margin-top: 10px;
     height: 30px;
-    width: calc(50% - 20px);
+    width: calc(75% - 20px);
+}
+.individualFundingGraph h1 {
+    float: left;
+    width: 10px;
+    height: 30px;
+    margin: 0px;
+    margin-top: 2.5px;
+    font-size: 1.75em;
+    font-weight: 200;
+}
+
+
+.individualDemocrat .fundingGraphGraph {
     background-color: #31425f;
 }
+
+.individualRepublican .fundingGraphGraph {
+    background-color: #c33940;
+}
+
 
 #initialSearch {
     background-image: url("../images/initialSearchBackground.jpg");
