@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(bodyParser.json({ type: 'application/*+json', limit: '50mb' }));
 
 // Initialize firebase app
-
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://nrafunded-55558.firebaseio.com"
