@@ -43,7 +43,7 @@ app.use(require('./routes/initialSearch'));
 app.use(require('./routes/splash'));
 
 // Define port to serve the application
-app.set('port', process.env.PORT || 3000 );
+app.set('port', process.env.PORT || 80 );
 
 // Local Variables
 // Set initial values to correspond to Washington DC
