@@ -1,6 +1,6 @@
-nra_data = {
+{
 "Federal":{
-"HouseReps":
+"Officials":
 [{"name": "\ufeffBradley Byrne", "money": 2000, "party": "Republican", "state": "Alabama"},
 {"name": "Martha Roby", "money": 2000, "party": "Republican", "state": "Alabama"},
 {"name": "Mike D Rogers", "money": 2000, "party": "Republican", "state": "Alabama"},
@@ -443,10 +443,7 @@ nra_data = {
 {"name": "Glenn S Grothman", "money": 2000, "party": "Republican", "state": "Wisconsin"},
 {"name": "Sean P Duffy", "money": 2000, "party": "Republican", "state": "Wisconsin"},
 {"name": "Reid Ribble", "money": 0, "party": "Republican", "state": "Wisconsin"},
-{"name": "Cynthia Lummis", "money": 0, "party": "Republican", "state": "Wyoming"}
-],
-"Senators":
-[
+{"name": "Cynthia Lummis", "money": 0, "party": "Republican", "state": "Wyoming"},
 {"name": "Roy Blunt", "money": 11900, "party": "Republican", "state": "Missouri"},
 {"name": "Marco Rubio", "money": 9900, "party": "Republican", "state": "Florida"},
 {"name": "Chuck Grassley", "money": 9900, "party": "Republican", "state": "Iowa"},

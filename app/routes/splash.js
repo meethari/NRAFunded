@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/initialSearch', function(req, res) {
+router.get('/', function(req, res) {
 
-  res.render('initialSearch');
+  res.render('splash');
 
 });
 

@@ -57,6 +57,34 @@ $(window).on("load", function() {
             console.log("Geolocation is not supported by this browser.");
         }
     });
+
+    $("#title #searchButton").click(function() {
+        window.location.assign('/initialSearch');
+    });
+
+    $("#initialSearchBarInput").keypress(function(e) {
+        var key = e.which || e.keyCode;
+        if(key == 13) {
+            var userInput = $("#initialSearchBarInput").val();
+            var newUserInput = userInput.replace(/, /g, "%20");
+            newUserInput = newUserInput.replace(/ /g, "%20");
+            console.log(newUserInput);
+            geocode(newUserInput);
+            $("#initialSearchBarInput").val("");
+        }
+    });
+
+    $("#searchBarInput").keypress(function(e) {
+        var key = e.which || e.keyCode;
+        if(key == 13) {
+            var userInput = $("#searchBarInput").val();
+            var newUserInput = userInput.replace(/, /g, "%20");
+            newUserInput = newUserInput.replace(/ /g, "%20");
+            console.log(newUserInput);
+            geocode(newUserInput);
+            $("#searchBarInput").val("");
+        }
+    })
 });
 
 // Geocode Function
@@ -178,10 +206,13 @@ function getCivicsData() {
                 // Populate senators array
                 var civicDataSenateIndex, civicDataHouseRepresentativeIndex;
                 for(var i = 0; i < data.offices.length; i++) {
-                    if(data.offices[i].name.indexOf("Senate") > 0) {
+                    if(data.offices[i].name.indexOf("United States Senate") >= 0) {
+                        console.log("Senate: " + i);
+                        console.log(data.offices[i]);
                         civicDataSenateIndex = i;
                     }
-                    if(data.offices[i].name.indexOf("House of Representatives") > 0) {
+                    if(data.offices[i].name.indexOf("House of Representatives") >= 0) {
+                        console.log(data.offices[i]);
                         civicDataHouseRepresentativeIndex = i;
                     }
                 }
@@ -210,38 +241,59 @@ function getCivicsData() {
                 var allOfficials = senators.concat(houseOfficials);
                 console.log(allOfficials);
                 $("#individualsContent").html("");
-                printAllOfficials(allOfficials);
+                $.post('/getGeneralData', {officials: allOfficials}, function(results, status) {
+                    console.log(results);
+                    $("#generalStatsTotalFundingFunding").html(results.totalFunds);
+                    $("#generalStatsTotalRepFundedRepresentatives").html(results.totalPeopleFunded);
+                    printAllOfficials(allOfficials, results.highestFunded);
+                });
             });
         });
     });
 }
 
-function printAllOfficials(allOfficials) {
+function printAllOfficials(allOfficials, highestFunded) {
     for(var i = 0; i < allOfficials.length; i++) {
-        printOfficial(allOfficials[i]);
+        printOfficial(allOfficials[i], highestFunded);
     }
 }
 
-function printOfficial(official) {
-    var partyClass;
-    if(official.party == "Democratic") {
-        partyClass = "individualDemocrat";
-    } else {
-        partyClass = "individualRepublican";
-    }
-    var positionClass;
-    if(official.position == "Local House Representative") {
-        positionClass = "individualHouse";
-    }
-    if(official.position == "Senator") {
-        positionClass = "individualSenate";
-    }
-    var officialHTML = `<div class="individualsIndividual ` + partyClass + ` ` + positionClass + `">
-                <p class="individualName">` + official.name + `</p>
-                <p class="individualParty">` + official.party + `</p>
-                <p class="individualPosition">` + official.position + `</p>
-                <p class="individualFundingRecieved">$10000</p>
-                <div class="individualFundingGraph"><div class="fundingGraphGraph"> </div><h1>$</h1></div>
-            </div>`;
-    $("#individualsContent").append(officialHTML);
+function printOfficial(official, highestFunded) {
+    $.post('/queryDatabase', {name: official.name, position: official.position, party: official.party}, function(data, status) {
+        console.log(data);
+        var partyClass;
+        if(data.party == "Democratic") {
+            partyClass = "individualDemocrat";
+        } else {
+            partyClass = "individualRepublican";
+        }
+        var positionClass;
+        if(data.position == "Local House Representative") {
+            positionClass = "individualHouse";
+        }
+        if(data.position == "Senator") {
+            positionClass = "individualSenate";
+        }
+        var officialHTML = `<div class="individualsIndividual ` + partyClass + ` ` + positionClass + `">
+                    <p class="individualName">` + data.name + `</p>
+                    <p class="individualParty">` + data.party + `</p>
+                    <p class="individualPosition">` + data.position + `</p>
+                    <p class="individualFundingRecieved">$` + data.money + `</p>
+                    <div class="individualFundingGraph"><div class="fundingGraphGraph" id="` + data.name.substring(data.name.lastIndexOf(" ") + 1) + `Graph"> </div><h1>$</h1></div>
+                </div>`;
+        $("#individualsContent").append(officialHTML);
+        if(highestFunded > 0) {
+            var percentage = data.money / highestFunded;
+            percentage = percentage * 100;
+            var graphOfIndiv = "#" + data.name.substring(data.name.lastIndexOf(" ") + 1) + "Graph";
+            console.log($(graphOfIndiv));
+            console.log(percentage);
+            $(graphOfIndiv).width('calc(' + percentage + '% - 20px)');
+        } else {
+            var graphOfIndiv = "#" + data.name.substring(data.name.lastIndexOf(" ") + 1) + "Graph";
+            console.log($(graphOfIndiv));
+            $(graphOfIndiv).width('calc(' + percentage + '% - 20px)');
+        }
+    });
 }
+
