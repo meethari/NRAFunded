@@ -17,7 +17,7 @@ body {
 
 #headerLogo {
     float: left;
-    width: 75px;
+    width: 100px;
     height: 75px;
     background-color: #31425f;
     margin-left: 10px;
@@ -33,12 +33,12 @@ body {
     color: white;
     font-weight: 400;
     font-size: 1em;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 #searchBar {
     float: left;
-    width: calc(100% - 105px);
+    width: calc(100% - 130px);
     background-color: white;
     margin-top: 20px;
     height: 75px;
@@ -245,16 +245,16 @@ body {
 }
 
 #initialSearchTitleTop {
-    font-size:4em;
+    font-size:6em;
     width: 100%;
     text-align: center;
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    margin-bottom: -30px;
+    margin-bottom: -40px;
 }
 #initialSearchTitleBottom {
-    font-size: 3em;
+    font-size: 2.75em;
     width: 100%;
     text-align: center;
     margin-top: 0px;

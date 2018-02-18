@@ -73,8 +73,8 @@ ref.once("value", function(snapshot) {
 */
 
 // Get request for maps API key
-app.get('/getMapsAPIKey', function(req, res) {
-    res.send(config.MapsAPIKey);
+app.get('/getAPIKey', function(req, res) {
+    res.send(config.APIKey);
 });
 
 // Post request to update current search parameters

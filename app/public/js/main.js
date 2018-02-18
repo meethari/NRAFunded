@@ -1,9 +1,16 @@
+var senators = [];
+var houseOfficialsLocal = [];
+
+
 $(window).on("load", function() {
     //Update Map
     updateMap();
 
     //Update General Statistics
     updateGeneralStats();
+
+    //Get Civics Data
+    getCivicsData();
 
     $("#geolocateMe").click(function() {
         if(navigator.geolocation) {
@@ -58,7 +65,7 @@ $(window).on("load", function() {
 // Geocode
 function geocode(input) {
     // Get latitude and longitude
-    $.get('/getMapsAPIKey', function(apiKey) {
+    $.get('/getAPIKey', function(apiKey) {
         var geocodeSource = "https://maps.googleapis.com/maps/api/geocode/json?address=" + input + "&key=" + apiKey;
         $.get(geocodeSource, function(data, status) {
             console.log(data);
@@ -75,7 +82,7 @@ function geocode(input) {
 // Accepts latitude and longitude
 // Returns city, county, and state
 function reverseGeocode(latitude, longitude) {
-    $.get('/getMapsAPIKey', function(apiKey) {
+    $.get('/getAPIKey', function(apiKey) {
         var reverseGeocodeSource = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + apiKey;
         $.get(reverseGeocodeSource, function(data) {
             console.log(data);
@@ -107,7 +114,8 @@ function reverseGeocode(latitude, longitude) {
             });
             if(document.getElementById('map') != null) {
                 initMap();
-                window.location.assign('/index');
+                updateGeneralStats();
+                getCivicsData();
             } else {
                 window.location.assign('/index');
             }
@@ -129,7 +137,7 @@ function initMap() {
 
 // Update map
 function updateMap() {
-    $.get('/getMapsAPIKey', function(apiKey) {
+    $.get('/getAPIKey', function(apiKey) {
         var source = "https://maps.googleapis.com/maps/api/js?key=" + apiKey + "&callback=initMap";
         $("#mapSource").attr("src", source);
     });
@@ -149,5 +157,38 @@ function updateGeneralStats() {
             locationName += ", " + location.adminOne;
         }
         $("#generalStatsLocation").html(locationName);
+    });
+}
+
+function getCivicsData() {
+    senators = [];
+    houseOfficials = [];
+    $.get('/getAPIKey', function(apiKey) {
+        console.log(apiKey);
+        $.get('/getCurrentSearchParameters', function(location) {
+            console.log(location);
+            var latitude = location.lat;
+            var longitude = location.lng;
+            var location = "" + latitude + "," + longitude;
+            console.log(apiKey);
+            $.get("https://www.googleapis.com/civicinfo/v2/representatives?key=" + apiKey + "&address=" + location, function(data, status){
+                // the data variable holds the information you seek
+                console.log(status);
+                console.log(data);
+                // Populate senators array
+                var civicDataSenateIndex, civicDataHouseRepresentativeIndex;
+                for(var i = 0; i < data.offices.length; i++) {
+                    if(data.offices[i].name.indexOf("Senate") > 0) {
+                        civicDataSenateIndex = i;
+                    }
+                    if(data.offices[i].name.indexOf("House of Representatives") > 0) {
+                        civicDataHouseRepresentativeIndex = i;
+                    }
+                }
+                console.log(data.offices[civicDataSenateIndex]);
+                console.log(data.offices[civicDataHouseRepresentativeIndex]);
+
+            });
+        });
     });
 }
